@@ -1,17 +1,18 @@
 pipeline {
-    agent any
-
-    tools {
-        nodejs 'NodeJS-20'
+    agent {
+        docker {
+            image 'node:20'
+            args '-u root'
+        }
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git credentialsId: 'github-token',
-                url: 'https://github.com/wasthTheekshana/Jenkins_test.git',
-                branch: 'main'
+                git branch: 'main',
+                credentialsId: 'github-token',
+                url: 'https://github.com/wasthTheekshana/Jenkins_test.git'
             }
         }
 
