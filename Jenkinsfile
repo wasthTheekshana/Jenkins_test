@@ -4,8 +4,9 @@ pipeline {
     tools {
         nodejs 'NodeJS-20'
     }
-    
+
     stages {
+
         stage('Checkout') {
             steps {
                 git credentialsId: 'github-token',
@@ -31,5 +32,6 @@ pipeline {
                 sh 'npm test'
             }
         }
+
     }
 }
