@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/YOUR_USERNAME/YOUR_REPO.git',
-                    credentialsId: 'github-token'
+                git credentialsId: 'github-token',
+                url: 'https://github.com/wasthTheekshana/Jenkins_test.git',
+                branch: 'main'
             }
         }
 
